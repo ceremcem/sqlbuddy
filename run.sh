@@ -13,6 +13,22 @@ if [[ "$PORT" == "" ]]; then
 	PORT=7904
 fi
 
+php -S "127.0.0.1:$PORT" -t "$DIR" &
+pid=$!
+
+trap cleanup INT 
+
+cleanup() {
+	echo "Killing $(basename $0)"
+	kill $pid
+}
+
+while [ "$(netstat -an | grep LISTEN | grep $PORT)" == "" ]; do
+	echo "Waiting for sqlbuddy server to start..."
+	sleep 0.1
+done
+
 echo "Server started on port $PORT"
 firefox "localhost:$PORT"
-php -S "127.0.0.1:$PORT" -t "$DIR"
+
+wait %1
