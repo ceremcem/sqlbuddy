@@ -29,6 +29,6 @@ while [ "$(netstat -an | grep LISTEN | grep $PORT)" == "" ]; do
 done
 
 echo "Server started on port $PORT"
-firefox "localhost:$PORT"
+sensible-browser "localhost:$PORT"
 
 wait %1
