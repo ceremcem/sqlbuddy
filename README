@@ -13,6 +13,10 @@ CHANGELOG
 A list of changes made in this version is available online 
 at http://www.sqlbuddy.com/releasenotes/
 
+# REQUIREMENT
+
+** Please use PHP-5 with sqlbuddy... **
+
 INSTALLATION
 
 To start using SQL Buddy take the folder of unzipped files and 
